@@ -1,23 +1,12 @@
-# Data Layer @CoffeeCode
-
-[![Maintainer](http://img.shields.io/badge/maintainer-@robsonvleite-blue.svg?style=flat-square)](https://twitter.com/robsonvleite)
-[![Source Code](http://img.shields.io/badge/source-coffeecode/datalayer-blue.svg?style=flat-square)](https://github.com/robsonvleite/datalayer)
-[![PHP from Packagist](https://img.shields.io/packagist/php-v/coffeecode/datalayer.svg?style=flat-square)](https://packagist.org/packages/coffeecode/datalayer)
-[![Latest Version](https://img.shields.io/github/release/robsonvleite/datalayer.svg?style=flat-square)](https://github.com/robsonvleite/datalayer/releases)
-[![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](LICENSE)
-[![Build](https://img.shields.io/scrutinizer/build/g/robsonvleite/datalayer.svg?style=flat-square)](https://scrutinizer-ci.com/g/robsonvleite/datalayer)
-[![Quality Score](https://img.shields.io/scrutinizer/g/robsonvleite/datalayer.svg?style=flat-square)](https://scrutinizer-ci.com/g/robsonvleite/datalayer)
-[![Total Downloads](https://img.shields.io/packagist/dt/coffeecode/datalayer.svg?style=flat-square)](https://packagist.org/packages/coffeecode/datalayer)
+# Data Layer 
 
 ###### The data layer is a persistent abstraction component of your database that PDO has prepared instructions for performing common routines such as registering, reading, editing, and removing data.
 
 O data layer é um componente para abstração de persistência no seu banco de dados que usa PDO com prepared statements para executar rotinas comuns como cadastrar, ler, editar e remover dados.
 
-## About CoffeeCode
-
-###### CoffeeCode is a set of small and optimized PHP components for common tasks. Held by Robson V. Leite and the UpInside team. With them you perform routine tasks with fewer lines, writing less and doing much more.
-
-CoffeeCode é um conjunto de pequenos e otimizados componentes PHP para tarefas comuns. Mantido por Robson V. Leite e a equipe UpInside. Com eles você executa tarefas rotineiras com poucas linhas, escrevendo menos e fazendo muito mais.
+###### A set of small and optimized PHP components for common tasks. Held by Robson V. Leite and the UpInside team. With them you perform routine tasks with fewer lines, writing less and doing much more.
+ 
+Um conjunto de pequenos e otimizados componentes PHP para tarefas comuns. Mantido por Robson V. Leite e a equipe UpInside. Com eles você executa tarefas rotineiras com poucas linhas, escrevendo menos e fazendo muito mais.
 
 ### Highlights
 
@@ -32,13 +21,13 @@ CoffeeCode é um conjunto de pequenos e otimizados componentes PHP para tarefas 
 Data Layer is available via Composer:
 
 ```bash
-"coffeecode/datalayer": "1.1.*"
+"toniette/datalayer": "1.1.*"
 ```
 
 or run
 
 ```bash
-composer require coffeecode/datalayer
+composer require toniette/datalayer
 ```
 
 ## Documentation
@@ -115,11 +104,11 @@ foreach ($users as $user) {
 }
 
 //find one user by condition
-$user = $model->find("first_name = :name", "name=Robson")->fetch();
+$user = $model->find("first_name = :name", "name=Luis")->fetch();
 echo $user->first_name;
 
 //find one user by two conditions
-$user = $model->find("first_name = :name AND last_name = :last", "name=Robson&last=Leite")->fetch();
+$user = $model->find("first_name = :name AND last_name = :last", "name=Luis&last=Toniette")->fetch();
 echo $user->first_name . " " . $user->first_last;
 ```
 
@@ -173,8 +162,8 @@ $count = $model->find()->count();
 use Example\Models\User;
 $user = new User();
 
-$user->first_name = "Robson";
-$user->last_name = "Leite";
+$user->first_name = "Luis";
+$user->last_name = "Toniette";
 $userId = $user->save();
 ```
 
@@ -185,7 +174,7 @@ $userId = $user->save();
 use Example\Models\User;
 $user = (new User())->findById(2);
 
-$user->first_name = "Robson";
+$user->first_name = "Luis";
 $userId = $user->save();
 ```
 
@@ -228,13 +217,10 @@ class User{
     }
 }
 
-echo $this->full_name; //Robson V. Leite
-echo $this->document; //Restrict
+echo $this->full_name; 
+echo $this->document;
 ```` 
 
-## Contributing
-
-Please see [CONTRIBUTING](https://github.com/robsonvleite/datalayer/blob/master/CONTRIBUTING.md) for details.
 
 ## Support
 
@@ -243,13 +229,3 @@ Please see [CONTRIBUTING](https://github.com/robsonvleite/datalayer/blob/master/
 Se você descobrir algum problema relacionado à segurança, envie um e-mail para cursos@upinside.com.br em vez de usar o rastreador de problemas.
 
 Thank you
-
-## Credits
-
-- [Robson V. Leite](https://github.com/robsonvleite) (Developer)
-- [UpInside Treinamentos](https://github.com/upinside) (Team)
-- [All Contributors](https://github.com/robsonvleite/datalayer/contributors) (This Rock)
-
-## License
-
-The MIT License (MIT). Please see [License File](https://github.com/robsonvleite/datalayer/blob/master/LICENSE) for more information.
