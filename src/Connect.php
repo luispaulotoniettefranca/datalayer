@@ -1,14 +1,11 @@
 <?php
 
-namespace CoffeeCode\DataLayer;
+namespace Toniette\DataLayer;
 
 use PDO;
 use PDOException;
 
-/**
- * Class Connect
- * @package CoffeeCode\DataLayer
- */
+
 class Connect
 {
     /** @var PDO */

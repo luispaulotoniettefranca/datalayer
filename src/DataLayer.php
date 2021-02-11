@@ -1,16 +1,13 @@
 <?php
 
-namespace CoffeeCode\DataLayer;
+namespace Toniette\DataLayer;
 
 use Exception;
 use PDO;
 use PDOException;
 use stdClass;
 
-/**
- * Class DataLayer
- * @package CoffeeCode\DataLayer
- */
+
 abstract class DataLayer
 {
     use CrudTrait;
@@ -94,14 +91,14 @@ abstract class DataLayer
      */
     public function __get($name)
     {
-        $method = $this->toCamelCase($name);
-        if (method_exists($this, $method)) {
-            return $this->$method();
-        }
-
-        if (method_exists($this, $name)) {
-            return $this->$name();
-        }
+//        $method = $this->toCamelCase($name);
+//        if (method_exists($this, $method)) {
+//            return $this->$method();
+//        }
+//
+//        if (method_exists($this, $name)) {
+//            return $this->$name();
+//        }
 
         return ($this->data->$name ?? null);
     }
@@ -128,11 +125,11 @@ abstract class DataLayer
      * @param string $columns
      * @return DataLayer
      */
-    public function find(?string $terms = null, ?string $params = null, string $columns = "*"): DataLayer
+    public function find(?string $terms = null, ?array $params = null, string $columns = "*"): DataLayer
     {
         if ($terms) {
             $this->statement = "SELECT {$columns} FROM {$this->entity} WHERE {$terms}";
-            parse_str($params, $this->params);
+            $this->params = $params;
             return $this;
         }
 
@@ -147,7 +144,7 @@ abstract class DataLayer
      */
     public function findById(int $id, string $columns = "*"): ?DataLayer
     {
-        return $this->find("{$this->primary} = :id", "id={$id}", $columns)->fetch();
+        return $this->find("{$this->primary} = :id", ["id" => $id], $columns)->fetch();
     }
 
     /**

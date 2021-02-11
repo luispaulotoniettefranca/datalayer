@@ -1,15 +1,12 @@
 <?php
 
-namespace CoffeeCode\DataLayer;
+namespace Toniette\DataLayer;
 
 use DateTime;
 use Exception;
 use PDOException;
 
-/**
- * Trait CrudTrait
- * @package CoffeeCode\DataLayer
- */
+
 trait CrudTrait
 {
     /**
